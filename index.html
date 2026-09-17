@@ -77,7 +77,7 @@
     {"@type":"Question","name":"אולי אפשר לפתור את זה בלי שתגיע?","acceptedAnswer":{"@type":"Answer","text":"לפעמים כן. אם זו תקלה שלא צריך בשבילה מנעולן, כמו ציר שצריך שימון, אני אסביר לך בטלפון איך לסדר את זה. אני נוסע רק כשבאמת צריך."}},
     {"@type":"Question","name":"יש אחריות?","acceptedAnswer":{"@type":"Answer","text":"30 יום אחריות על העבודה שביצעתי. אם מופיעה תקלה אני חוזר, מתקן או מחליף. יש עבודות שאין עליהן אחריות או שהאחריות עליהן מוגבלת, ואת זה אני אומר מראש לפני שמתחילים."}},
     {"@type":"Question","name":"אתה עובד בשבת?","acceptedAnswer":{"@type":"Answer","text":"לא. שבת וחגי ישראל סגור. במוצאי שבת אני זמין אחרי צאת השבת ועד 22:00."}},
-    {"@type":"Question","name":"ומה בלילה, אחרי 22:00?","acceptedAnswer":{"@type":"Answer","text":"בלילה יש תעריף מוגדל, ואני לא מבטיח הגעה. תתקשר ואני אגיד לך מיד אם אני יכול."}},
+    {"@type":"Question","name":"ומה מחוץ לשעות?","acceptedAnswer":{"@type":"Answer","text":"זה מקרה מיוחד, לא השירות הרגיל. אפשר לנסות — יש תעריף לילה מוגדל, ואני לא מתחייב שאענה או שאגיע. תתקשר, ואם אני יכול תדע תוך רגע."}},
     {"@type":"Question","name":"איך משלמים?","acceptedAnswer":{"@type":"Answer","text":"כל אמצעי תשלום שנוח לך, חוץ מכרטיס אשראי שאני לא מקבל כרגע."}}
   ]
 }
@@ -207,9 +207,18 @@ h1{font-family:var(--disp);font-weight:900;font-size:clamp(2rem,9vw,2.9rem);
 .row.base span::after{content:' · הבסיס שלי';font-size:.72rem;color:var(--dim);letter-spacing:.02em}
 .caveat{margin-top:.9rem;padding-top:.85rem;border-top:1px dashed var(--line);
         color:var(--dim);font-size:.88rem;line-height:1.6}
-.night{background:var(--brass-soft);border-radius:4px;padding:.85rem .95rem;
-       margin-top:1rem;font-size:.92rem;line-height:1.6}
-.night b{color:var(--brass)}
+/* Two tiers of availability. The committed one carries the brass edge; the
+   exceptional one is deliberately quieter but the same size, so it reads as
+   a real option rather than as a disclaimer someone tried to hide. */
+.tiers{display:grid;gap:.7rem;margin-top:1.2rem}
+.tier{border-radius:4px;padding:.9rem 1rem;font-size:.92rem;line-height:1.6}
+.tier .t{display:block;font-weight:700;font-size:1rem;margin-bottom:.25rem}
+.tier p{color:var(--dim)}
+.tier.yes{background:var(--brass-soft);border-right:3px solid var(--brass)}
+.tier.yes .t{color:var(--brass)}
+.tier.maybe{background:var(--ink-2);border-right:3px solid var(--line)}
+.tier.maybe .t{color:var(--bone)}
+@media(min-width:560px){.tiers{grid-template-columns:1fr 1fr;align-items:stretch}}
 .svc{list-style:none}
 .svc li{padding-block:.55rem;border-bottom:1px solid var(--line-soft);font-size:1.01rem}
 .svc li:last-child{border-bottom:0}
@@ -335,14 +344,29 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
 
 <!-- ══ HOURS ══ Saturday closed is stated plainly. Not one of the ten
      competitors says this; all of them advertise 24/7. ══ -->
-<section class="wrap sec" data-sid="hours" data-title="שעות פעילות ותעריף לילה">
+<section class="wrap sec" data-sid="hours" data-title="שעות פעילות: 24 שעות, עם הפרדה בין מה שמובטח למה שלא">
   <p class="lbl">מתי אני זמין</p>
   <h2>שעות</h2>
   <div class="row"><span>ראשון–חמישי</span><i>08:00–22:00</i></div>
   <div class="row"><span>שישי</span><i>עד 13:00</i></div>
   <div class="row"><span>שבת וחגי ישראל</span><i>סגור</i></div>
-  <div class="row"><span>מוצאי שבת</span><i>עד 22:00</i></div>
-  <p class="night"><b>אחרי 22:00 —</b> תעריף לילה מוגדל, ואני לא מבטיח הגעה. תתקשר ואגיד לך מיד אם אני יכול.</p>
+  <div class="row"><span>מוצאי שבת</span><i>אחרי צאת השבת</i></div>
+
+  <!-- Two tiers, side by side and equally weighted. Burying "no commitment
+       outside these hours" in fine print would be the dishonest version, and
+       it is also the version that produces the 2am no-show and the review
+       that follows. Stated plainly it reads as someone who keeps his word,
+       and it makes the after-hours call feel like the favour it is. -->
+  <div class="tiers">
+    <div class="tier yes">
+      <span class="t">בתוך השעות</span>
+      <p>אני מגיע. זו התחייבות.</p>
+    </div>
+    <div class="tier maybe">
+      <span class="t">מחוץ לשעות</span>
+      <p>מקרה מיוחד. אפשר לנסות, בתעריף לילה מוגדל, ובלי התחייבות שאענה או שאגיע. אם אני יכול — תדע תוך רגע.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ══ SERVICES ══ -->
@@ -399,8 +423,8 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
   <details><summary>אתה עובד בשבת?</summary>
     <p>לא. שבת וחגי ישראל סגור. במוצאי שבת אני זמין אחרי צאת השבת ועד 22:00.</p></details>
 
-  <details><summary>ומה בלילה, אחרי 22:00?</summary>
-    <p>יש תעריף לילה מוגדל, ואני לא מבטיח הגעה. תתקשר ואגיד לך מיד אם אני יכול.</p></details>
+  <details><summary>ומה מחוץ לשעות?</summary>
+    <p>זה מקרה מיוחד, לא השירות הרגיל. אפשר לנסות — יש תעריף לילה מוגדל, ואני לא מתחייב שאענה או שאגיע. תתקשר, ואם אני יכול תדע תוך רגע.</p></details>
 
   <details><summary>איך משלמים?</summary>
     <p>כל אמצעי תשלום שנוח לך, חוץ מכרטיס אשראי שאני לא מקבל כרגע.</p></details>
