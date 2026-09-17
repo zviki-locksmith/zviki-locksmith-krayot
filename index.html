@@ -7,7 +7,7 @@
 <meta name="description" content="מנעולן מוסמך בקריות ובחיפה. פריצת דלתות, החלפת צילינדרים ומנעולי קוד. זמני הגעה אמיתיים לכל עיר, אחריות 30 יום, ולפעמים פתרון בטלפון בלי שאצטרך להגיע. 055-665-7708">
 <link rel="canonical" href="https://zviki-locksmith.github.io/">
 <meta name="theme-color" content="#131417">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zviki-locksmith.github.io/">
@@ -61,11 +61,18 @@
   "paymentAccepted": "מזומן, העברה בנקאית, אפליקציות תשלום. ללא כרטיס אשראי.",
   "currenciesAccepted": "ILS",
   "availableLanguage": {"@type": "Language", "name": "Hebrew", "alternateName": "he"},
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+972-55-665-7708",
+    "areaServed": "IL",
+    "availableLanguage": ["he"]
+  },
   "makesOffer": [
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"פריצת ופתיחת דלתות"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"החלפת צילינדרים"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"החלפת מנגנוני נעילה"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"התקנת מנעולי קוד"}}
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"פריצת ופתיחת דלתות","description":"פתיחת דלת נעולה או טרוקה, בבית ובעסק.","serviceType":"פריצת ופתיחת דלתות","provider":{"@type":"Locksmith","name":"צביקי קירש — מנעולן"}}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"החלפת צילינדרים","description":"החלפת צילינדר במנעול קיים.","serviceType":"החלפת צילינדרים","provider":{"@type":"Locksmith","name":"צביקי קירש — מנעולן"}}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"החלפת מנגנוני נעילה","description":"החלפת מנגנון הנעילה בדלת.","serviceType":"החלפת מנגנוני נעילה","provider":{"@type":"Locksmith","name":"צביקי קירש — מנעולן"}}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"התקנת מנעולי קוד","description":"התקנת מנעול קוד ללא מפתח.","serviceType":"התקנת מנעולי קוד","provider":{"@type":"Locksmith","name":"צביקי קירש — מנעולן"}}}
   ]
 }
 </script>
@@ -86,80 +93,8 @@
 }
 </script>
 
+<link rel="stylesheet" href="/assets/base.css">
 <style>
-/* ═══════════════════════════════════════════════════════════════════
-   FONTS — self-hosted, subset. No third-party request anywhere on this
-   page: no Google Fonts, no analytics, no CDN. The site loads from one
-   origin, which is also why it works on a phone with one bar of signal.
-   ═══════════════════════════════════════════════════════════════════ */
-@font-face{font-family:'Frank';src:url(assets/fonts/fr-heb.woff2) format('woff2');
-           font-weight:400 900;unicode-range:U+0590-05FF,U+200F,U+FB1D-FB4F;font-display:swap}
-@font-face{font-family:'Assistant';src:url(assets/fonts/as-heb.woff2) format('woff2');
-           font-weight:300 700;unicode-range:U+0590-05FF,U+200F,U+FB1D-FB4F;font-display:swap}
-/* Digits and punctuation live in their own 3KB file — the Hebrew subsets
-   do not carry them, and the arrival table is nothing but numbers. */
-@font-face{font-family:'Assistant';src:url(assets/fonts/as-num.woff2) format('woff2');
-           font-weight:300 700;unicode-range:U+0030-0039,U+002B,U+002C-002F,U+003A,U+0025,U+0028-0029,U+2013-2014,U+00B7,U+20AA;font-display:swap}
-/* The studio mark's own two faces, frozen to one instance and cut to the
-   characters in the wordmark: 3KB for both. */
-@font-face{font-family:'WDM Archivo';src:url(assets/fonts/wdm-archivo.woff2) format('woff2');font-display:swap}
-@font-face{font-family:'WDM Mono';src:url(assets/fonts/wdm-mono.woff2) format('woff2');font-display:swap}
-
-/* ═══════════════════════════════════════════════════════════════════
-   TOKENS — "the door": near-black with a single brass accent. One
-   colour carries every emphasis on the page, so nothing competes with
-   the phone button.
-   ═══════════════════════════════════════════════════════════════════ */
-:root{
-  --ink:#131417;        /* page ground */
-  --ink-2:#191A1E;      /* raised panel */
-  --ink-3:#1E2024;      /* the quiet button */
-  --bone:#E9E4DA;       /* body copy — 14.6:1 on ink */
-  --dim:#A8A196;        /* secondary copy — 7.3:1 on ink, passes AA and AAA */
-  --brass:#C9A227;      /* the accent — 7.7:1 on ink */
-  --brass-soft:rgba(201,162,39,.16);
-  --line:#26282D;
-  --line-soft:#202227;
-  --sans:'Assistant','Segoe UI',system-ui,-apple-system,sans-serif;
-  --disp:'Frank','Frank Ruhl Libre',Georgia,serif;
-  --gutter:clamp(1.1rem,5vw,2rem);
-  --max:680px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{background:var(--ink);color:var(--bone);font-family:var(--sans);
-     font-size:1.06rem;line-height:1.65;overflow-x:clip;
-     /* room for the fixed call bar so the last section is never under it */
-     padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
-::selection{background:var(--brass);color:var(--ink)}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-.skip{position:fixed;top:-100px;right:1rem;z-index:300;background:var(--brass);
-      color:var(--ink);padding:.7rem 1.1rem;border-radius:0 0 6px 6px;font-weight:700}
-.skip:focus{top:0}
-.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
-.sec{padding-block:clamp(2rem,7vw,3.1rem);border-bottom:1px solid var(--line-soft)}
-.lbl{font-size:.7rem;letter-spacing:.2em;color:var(--brass);font-weight:700;
-     margin-bottom:1rem;text-transform:none}
-h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.35rem,4.6vw,1.7rem);
-   line-height:1.25;margin-bottom:.7rem;text-wrap:balance}
-p{margin-bottom:.8rem}
-p:last-child{margin-bottom:0}
-.dim{color:var(--dim)}
-.small{font-size:.88rem;line-height:1.6}
-
-/* ── header ───────────────────────────────────────────────────────── */
-.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;
-     padding-block:.85rem;border-bottom:1px solid var(--line-soft)}
-.top .nm{font-family:var(--disp);font-weight:700;font-size:1.05rem;line-height:1.2}
-.top .sb{font-size:.72rem;color:var(--dim);margin-top:.1rem}
-.top a.tel{font-variant-numeric:tabular-nums;color:var(--brass);font-weight:700;
-           font-size:.97rem;white-space:nowrap;padding:.55rem .2rem;min-height:44px;
-           display:flex;align-items:center}
-
 /* ── hero: the cylinder is drawn in CSS, so it costs no request and no
       decode. A photo here would have been the heaviest thing on the page. ── */
 .hero{position:relative;overflow:hidden;padding-block:clamp(2.4rem,9vw,4rem) clamp(2rem,7vw,3rem);
@@ -180,15 +115,6 @@ p:last-child{margin-bottom:0}
 h1{font-family:var(--disp);font-weight:900;font-size:clamp(2rem,9vw,2.9rem);
    line-height:1.12;margin-bottom:.9rem;text-wrap:balance}
 .lead{color:var(--dim);max-width:30ch;font-size:1.04rem}
-.cta{display:flex;gap:.6rem;margin-top:1.5rem;flex-wrap:wrap}
-.btn{flex:1 1 auto;min-width:140px;min-height:52px;display:flex;align-items:center;
-     justify-content:center;gap:.45rem;border-radius:8px;font-weight:700;font-size:1.02rem;
-     transition:background .2s ease,border-color .2s ease}
-.btn-1{background:var(--brass);color:#14150F}
-.btn-1:hover{background:#DDB434}
-.btn-2{background:var(--ink-3);color:var(--bone);border:1px solid var(--line)}
-.btn-2:hover{border-color:var(--brass)}
-.btn .num{font-variant-numeric:tabular-nums;letter-spacing:.01em}
 
 /* ── the call-first panel: the one thing no competitor says ────────── */
 .first{background:var(--ink-2);border-right:3px solid var(--brass);
@@ -239,43 +165,6 @@ summary::after{content:'+';color:var(--brass);font-size:1.3rem;line-height:1;fle
 details[open] summary::after{content:'–'}
 details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
 
-/* ── footer ───────────────────────────────────────────────────────── */
-.foot{padding-block:1.8rem 1.4rem;font-size:.92rem;color:var(--dim)}
-.foot a.tel{color:var(--brass);font-weight:700;font-variant-numeric:tabular-nums}
-/* The footer's phone and WhatsApp links sit on their own line, not inside a
-   sentence, so the inline exception to the target-size rule does not cover
-   them. Grow the hit area to 44px without moving the text. */
-.foot>p a{display:inline-flex;align-items:center;min-height:44px}
-.a11y{font-size:.83rem;line-height:1.6;color:var(--dim);padding-block:1.2rem;
-      border-top:1px solid var(--line-soft)}
-
-/* ── the fixed call bar: this is how most visitors will use the page ── */
-.bar{position:fixed;bottom:0;left:0;right:0;z-index:200;display:flex;
-     background:var(--ink-2);border-top:1px solid var(--line);
-     padding-bottom:env(safe-area-inset-bottom,0px)}
-.bar a{flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;
-       gap:.4rem;font-weight:700;font-size:1.02rem}
-.bar .c{background:var(--brass);color:#14150F;font-variant-numeric:tabular-nums}
-.bar .w{color:var(--bone)}
-
-/* ── studio credit — geometry from the studio's own werk.css ──────── */
-.wdm{background:#16130F;padding:1.4rem var(--gutter) 1.25rem;text-align:center;
-     margin-bottom:0}
-.wdm .pre{font-size:.72rem;color:rgba(239,233,222,.68);margin-bottom:.6rem}
-.wdm-lock{direction:ltr;display:inline-flex;align-items:center;gap:.65rem}
-.wdm-lock img{height:34px;width:auto;flex-shrink:0}
-.wdm-lock .tb{display:flex;flex-direction:column;line-height:1.1;text-align:left}
-.wdm-lock .nm{font-family:'WDM Archivo',Arial,sans-serif;font-size:.95rem;
-              text-transform:uppercase;color:#EFE9DE;transition:color .25s ease}
-.wdm-lock .sb{font-family:'WDM Mono','Courier New',monospace;font-size:.6rem;
-              color:rgba(239,233,222,.68);margin-top:.2rem}
-.wdm-lock:hover .nm,.wdm-lock:focus-visible .nm{color:#D2A62C}
-.wdm-lock:focus-visible{outline:2px solid #D2A62C;outline-offset:3px;border-radius:2px}
-
-@media(min-width:620px){
-  .cta .btn{flex:0 1 auto;padding-inline:1.6rem}
-  .who img{width:124px;height:122px}
-}
 </style>
 </head>
 <body>
@@ -320,7 +209,7 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
 <!-- ══ WHO ══ -->
 <section class="wrap sec" data-sid="who" data-title="מי מגיע: תמונה ושם">
   <div class="who">
-    <img src="assets/zviki.webp" width="420" height="412" alt="צביקי קירש, מנעולן" fetchpriority="high" decoding="async">
+    <img src="/assets/zviki.webp" width="420" height="412" alt="צביקי קירש, מנעולן" fetchpriority="high" decoding="async">
     <div>
       <b>צביקי קירש</b>
       <p class="dim small">זה מי שיענה לך בטלפון, וזה מי שיגיע לדלת. אותו אדם.</p>
@@ -439,6 +328,10 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
   <p>צביקי קירש — מנעולן · הקריות וחיפה</p>
   <p><a class="tel" href="tel:+972556657708">055-665-7708</a> · <a href="https://wa.me/972556657708" target="_blank" rel="noopener">וואטסאפ</a></p>
 
+  <nav class="fnav" aria-label="עמודי האתר">
+    <a href="/">דף הבית</a><a href="/about/">עליי</a><a href="/contact/">יצירת קשר</a><a href="/privacy/">פרטיות</a>
+  </nav>
+
   <div class="a11y" data-sid="a11y" data-title="הצהרת נגישות">
     <p><strong>נגישות.</strong> האתר נבנה לפי הקווים המנחים לנגישות תכנים באינטרנט ברמה AA: ניווט מלא במקלדת, ניגודיות צבעים תקנית, טקסט חלופי לתמונות ומבנה כותרות תקין. העסק פטור מחובת ביצוע התאמות נגישות לפי תקנה 35ו(ז) לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), והתאמות אלה בוצעו מעבר לנדרש. נתקלת בקושי כלשהו בשימוש באתר? התקשר <a class="tel" href="tel:+972556657708">055-665-7708</a> ואטפל בזה.</p>
   </div>
@@ -447,7 +340,7 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
 <div class="wdm" data-sid="wdm-credit" data-title="חתימת הסטודיו שבנה את האתר">
   <p class="pre">אתר בעיצוב ובנייה של</p>
   <a class="wdm-lock" href="https://digital.wildmoments.at/" target="_blank" rel="noopener">
-    <img src="assets/wdm-parrot.webp" alt="Wild Digital Moments" width="116" height="140" loading="lazy" decoding="async">
+    <img src="/assets/wdm-parrot.webp" alt="Wild Digital Moments" width="116" height="140" loading="lazy" decoding="async">
     <span class="tb">
       <span class="nm">Wild Digital Moments</span>
       <span class="sb">Webdesign-Studio · Tirol</span>

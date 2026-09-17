@@ -4,8 +4,8 @@
 
 ## יצירת קשר
 - טלפון: 055-665-7708
-- וואטסאפ: https://wa.me/972556657708
-- אתר: https://zviki-locksmith.github.io/
+- וואטסאפ: [שליחת הודעה](https://wa.me/972556657708)
+- אתר: [zviki-locksmith.github.io](https://zviki-locksmith.github.io/)
 
 ## אזור שירות וזמני הגעה משוערים
 הזמנים הם הערכה שתלויה בתנועה ובמיקומו באותו רגע, ויכולים להשתנות.
@@ -42,3 +42,12 @@
 
 ## מחירים
 לא מפורסמים באתר. המחיר נמסר בטלפון לפני היציאה לדרך.
+
+## עמודים
+- [דף הבית](https://zviki-locksmith.github.io/) — זמני הגעה לפי עיר, שעות, שירותים ושאלות נפוצות
+- [מי אני](https://zviki-locksmith.github.io/about/) — רקע, שיטת עבודה ואחריות
+- [יצירת קשר](https://zviki-locksmith.github.io/contact/) — טלפון, שעות, אזור שירות ותשלום
+- [פרטיות](https://zviki-locksmith.github.io/privacy/) — האתר אינו אוסף מידע
+
+## מקורות נוספים
+- [מפת האתר](https://zviki-locksmith.github.io/sitemap.xml)
