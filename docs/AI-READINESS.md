@@ -4,9 +4,15 @@ _Verified: 2026-09-17_
 
 Whether AI assistants and search engines can find, read and recommend this business. Scored by [Is Agentic](https://is-agentic.com/), Business profile.
 
-## Baseline scan — 17.09.2026, 21:22 UTC
+## Score
 
-**75 / 100 — "Ready with a few material gaps."** Essential 4/6 · Recommended for Business 3/7 · Bonus +2.
+| scan | score |
+|---|---|
+| baseline, 17.09.2026 21:22 UTC | **75 / 100** — Essential 4/6 · Recommended 3/7 · Bonus +2 |
+| after the fixes below | **80 / 100** |
+
+The remaining gap is not code. Every open check below is blocked on the same
+thing: a domain of his own.
 
 The evaluator's own note, after asking an agent to explain the business back from the site alone:
 
@@ -31,13 +37,40 @@ That check has one real fix, and it is not a code change: **a domain of his own.
 | 404 | `404.html` returns a real 404 with the site's navigation on it |
 | sitemap | all four pages listed |
 
-## Still open, and why
+## Still open — all three unlock together, with a domain
 
 | check | status |
 |---|---|
-| `Markdown content negotiation` | **Not fixable on GitHub Pages.** It requires responding to `Accept: text/markdown` with a markdown body and `Vary: Accept`. Static hosting gives no control over response headers. A host that does (Cloudflare Pages with a Function, or any PHP host) would close it. |
-| `Agent-friendly 404s` | Half credit. The 404 status is correct; the markdown error body needs the same content negotiation. |
-| `Brand name discoverability` | Needs a domain. See above. |
+| `Markdown content negotiation` | **Blocked on GitHub Pages, not impossible.** The check wants `Accept: text/markdown` answered with a markdown body and `Vary: Accept`. That is a decision taken per request, and GitHub Pages runs no code at request time — it returns the file on disk with fixed headers. |
+| `Agent-friendly 404s` | Half credit. The 404 status is already correct; the markdown error body needs the same per-request decision. |
+| `Brand name discoverability` | The scan searches the brand and resolves `*.github.io` as "github". Nothing in the repo changes that. |
+
+### It is a hosting limit, not a "static site" limit
+
+The studio's own site is proof. `digital.wildmoments.at` is hand-written HTML with
+no framework, and it passes content negotiation — verified 17.09.2026:
+
+```
+curl -H 'Accept: text/markdown' https://digital.wildmoments.at/
+  → 200 · Content-Type: text/markdown; charset=utf-8 · Vary: Accept
+  → body begins "# Webdesign Tirol — handgebaute Websites…"
+curl -H 'Accept: text/markdown' https://digital.wildmoments.at/__probe-xyz
+  → 404 · Content-Type: text/markdown; charset=utf-8 · Vary: Accept
+```
+
+It works there because that host runs Apache with PHP and `.htaccess`, so the
+server can branch on the request header. The difference is who controls the
+response, not whether the pages are hand-written.
+
+### The path, when the domain is bought
+
+A domain on Cloudflare in front of GitHub Pages: Cloudflare's free plan proxies
+the domain, a small Worker inspects `Accept` and returns markdown when asked,
+and GitHub Pages keeps serving the files behind it. Cloudflare cannot proxy
+`zviki-locksmith.github.io` — it needs a domain whose DNS Zviki controls.
+
+**So one ~₪50–100/year purchase closes all three checks at once**, and also
+removes the trust cost of a `github.io` address on a tradesman's business card.
 
 ## What passed, and is worth not breaking
 

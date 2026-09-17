@@ -57,13 +57,13 @@ Full citations: the legal section of [`FACTS.md`](FACTS.md).
 | Reviews | none yet. He said "not right now" — ask again once he has a few jobs behind him. |
 | Arrival-time proof | he agreed to timestamp the next 5 jobs (call time + arrival time). Nobody in the market proves the claim; this would be a first. |
 | Work photos | only the portrait exists. No van (he has none), no before/after, no certificate photo. |
-| Domain | not bought. The Is Agentic scan now gives this a measurable cost: it resolves the brand as "github" and fails brand discoverability. |
+| **Domain** | not bought. This is now the highest-value open item: it is the single purchase that closes all three remaining Is Agentic checks, and it removes a `github.io` address from a tradesman's business card. ~₪50–100/year. |
 | **Google Search Console** | not verified. Google retired the sitemap ping in 2023, so only Zviki can submit, from the account that owns the business profile. This is the biggest remaining blocker to showing up in Google. |
 | **Bing Webmaster Tools** | not verified, same reason. IndexNow submission succeeded meanwhile (HTTP 200). |
 
 ## AI and search readiness
 
-75/100 on Is Agentic at the baseline scan, with the trust-anchor and schema gaps closed afterwards. The full result, what was fixed and the two checks that static hosting cannot satisfy: [`AI-READINESS.md`](AI-READINESS.md).
+Is Agentic: **75/100 at baseline, 80/100 after the trust-anchor and schema fixes.** The three checks still open are all blocked on one thing — a domain of his own — and none of them is a code change. Details, including proof that the limit is the host and not hand-written HTML: [`AI-READINESS.md`](AI-READINESS.md).
 
 ## Files
 
