@@ -230,6 +230,10 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
 /* ── footer ───────────────────────────────────────────────────────── */
 .foot{padding-block:1.8rem 1.4rem;font-size:.92rem;color:var(--dim)}
 .foot a.tel{color:var(--brass);font-weight:700;font-variant-numeric:tabular-nums}
+/* The footer's phone and WhatsApp links sit on their own line, not inside a
+   sentence, so the inline exception to the target-size rule does not cover
+   them. Grow the hit area to 44px without moving the text. */
+.foot>p a{display:inline-flex;align-items:center;min-height:44px}
 .a11y{font-size:.83rem;line-height:1.6;color:var(--dim);padding-block:1.2rem;
       border-top:1px solid var(--line-soft)}
 
