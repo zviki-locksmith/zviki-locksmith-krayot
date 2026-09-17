@@ -49,6 +49,50 @@ Also measured: the business holding the #1 map-pack slot across all three Krayot
 
 ---
 
+## The iron rule — you may not skip a question
+
+Every field in `docs/FACTS.md` has exactly **three** legal states. There is no fourth.
+
+| State | Means | What you do |
+|---|---|---|
+| `✅` + the answer | He answered, and it clears the section's bar | Move on |
+| `סירב` + one line of why + the date | He was asked and declined | Never ask again |
+| `חסר` | Not yet asked, or asked and not yet answered | **Ask it. Again next session if needed.** |
+
+**You do not get to decide a question is unimportant.** The order and the contents of this file were set by a scan of the ten competitors who rank on page 1. A question that looks minor to you is in most cases the one none of them answer.
+
+**You may not leave a section until every field in it is `✅` or `סירב`.** If the sitting ends early, the remaining fields stay `חסר` — which is fine, and is exactly why they must stay visible.
+
+### These specifically count as skipping
+
+- Marking a field `✅` from something he said about a different field. An inference is not an answer.
+- Rewriting a question into a softer one because the real one felt awkward — the license question, the price question, the review question. Ask the question as written.
+- Accepting `"תשים מה שאתה חושב"` / `"מה שיוצא לך"` / `"לא משנה"` as an answer. **It is not one.** Say: *"אני לא רוצה להמציא לך. תגיד לי את המספר האמיתי ואני אשים אותו."* Then wait.
+- Accepting a vague answer that fails the section's stated bar. "מהר", "תלוי", "הרבה שנים" are not answers.
+- Filling something in yourself because it seems obvious or harmless.
+- Quietly dropping a field because he seemed reluctant. Reluctance is not refusal — ask, and if he then declines, write `סירב` with the reason.
+- Deleting a field, a section, or this file. **Never.** See the rules at the top of `docs/FACTS.md`.
+
+### Close every sitting with a count
+
+Before you finish, post this line to him and put it in the commit message:
+
+```
+נענו: N  ·  סירב: N  ·  חסר: N  ·  הבא בתור: <שם השדה>
+```
+
+A count is what makes a skipped question visible. A summary without one hides it.
+
+### When he pushes back
+
+Ask once more, with the reason — one sentence, concrete:
+
+> *"אני שואל כי בלי זה אי אפשר לשים X באתר."*
+
+If he declines after that, it is his business and his call. Write `סירב`, the reason, and the date — and respect it permanently. Pushing a second time is how an interview turns into an interrogation, and he stops answering everything else too.
+
+---
+
 ## Section 1 — Identity and license  ⭐ HIGHEST VALUE
 
 *This is the one thing no competitor has. If you get nothing else, get this.*
