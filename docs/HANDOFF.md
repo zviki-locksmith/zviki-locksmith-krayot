@@ -4,7 +4,7 @@ _Verified: 2026-09-17_
 
 ## Where this stands
 
-The site is **built and live** at https://zviki-locksmith.github.io/ — one page, plain HTML, CSS inline, no JavaScript beyond a single console line, no build step. GitHub Pages serves the repo root on `main`.
+The site is **built and live** at https://zviki-locksmith.github.io/ — a home page plus three trust anchor pages, plain HTML, one shared stylesheet, no JavaScript beyond a single console line, no build step. GitHub Pages serves the repo root on `main`.
 
 The content came out of a structured interview with Zviki recorded in [`FACTS.md`](FACTS.md). **Nothing on the page was invented.** If a fact is not in `FACTS.md`, it is not on the site.
 
