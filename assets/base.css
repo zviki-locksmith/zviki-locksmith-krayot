@@ -95,12 +95,29 @@ p:last-child{margin-bottom:0}
    sentence, so the inline exception to the target-size rule does not cover
    them. Grow the hit area to 44px without moving the text. */
 .foot>p a{display:inline-flex;align-items:center;min-height:44px}
-/* Footer navigation. The sub-pages are reachable from every page, because
-   an orphan page is one no crawler and no reader ever finds. */
-.fnav{display:flex;flex-wrap:wrap;gap:.2rem 1.1rem;margin-top:.5rem}
-.fnav a{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);
-        font-size:.9rem;transition:color .2s ease}
-.fnav a:hover,.fnav a:focus-visible{color:var(--brass)}
+/* Footer navigation. As a row of small grey words beside the accessibility
+   paragraph it read as fine print, and nobody would guess the other pages
+   existed. Cards with a title and a line of their own read as pages. */
+.more{margin:1.6rem 0 .4rem}
+.more-h{font-size:.7rem;letter-spacing:.2em;color:var(--brass);font-weight:700;margin-bottom:.7rem}
+.more a{display:flex;flex-direction:column;gap:.15rem;padding:.75rem .9rem;
+        border:1px solid var(--line);border-radius:5px;margin-bottom:.5rem;
+        min-height:44px;justify-content:center;position:relative;
+        transition:border-color .2s ease,background .2s ease}
+.more a b{font-weight:700;font-size:1rem;color:var(--bone)}
+.more a span{font-size:.84rem;color:var(--dim);line-height:1.45}
+.more a::after{content:'←';position:absolute;left:.9rem;top:50%;transform:translateY(-50%);
+               color:var(--brass);font-size:1.05rem}
+.more a:hover,.more a:focus-visible{border-color:var(--brass);background:var(--ink-2)}
+/* The page you are already on stays in the list so the set is always the same,
+   but it is not a link anywhere and does not pretend to be one. */
+.more a[aria-current="page"]{background:var(--ink-2);border-color:var(--line-soft);opacity:.6}
+.more a[aria-current="page"]::after{content:'●';font-size:.6rem;color:var(--dim)}
+@media(min-width:620px){
+  .more{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;align-items:stretch}
+  .more-h{grid-column:1/-1;margin-bottom:.2rem}
+  .more a{margin-bottom:0}
+}
 .a11y{font-size:.83rem;line-height:1.6;color:var(--dim);padding-block:1.2rem;
       border-top:1px solid var(--line-soft)}
 
