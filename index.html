@@ -168,7 +168,11 @@ p:last-child{margin-bottom:0}
      opacity:.62;pointer-events:none}
 .cyl::after{content:'';position:absolute;inset:62px 78px 44px 78px;
             border-radius:16px 16px 3px 3px;background:#101114}
-.hero>*{position:relative}
+/* Only the content wrapper is lifted above the cylinder. Targeting every
+   child here would re-declare .cyl as position:relative — a higher-specificity
+   rule silently cancelling its absolute placement — and drop it into the flow,
+   pushing the headline below the fold. */
+.hero>.wrap{position:relative;z-index:1}
 .kick{font-size:.72rem;letter-spacing:.2em;color:var(--brass);font-weight:700;margin-bottom:1rem}
 h1{font-family:var(--disp);font-weight:900;font-size:clamp(2rem,9vw,2.9rem);
    line-height:1.12;margin-bottom:.9rem;text-wrap:balance}
