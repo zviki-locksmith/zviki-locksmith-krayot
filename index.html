@@ -56,7 +56,7 @@
   "openingHoursSpecification": [
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"22:00"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:00","closes":"13:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"00:00","closes":"00:00","description":"סגור בשבת ובחגי ישראל. במוצאי שבת, אחרי צאת השבת ועד 22:00."}
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"00:00","closes":"00:00","description":"סגור בשבת ובחגי ישראל. במוצאי שבת פתוח מצאת השבת ועד 22:00."}
   ],
   "paymentAccepted": "מזומן, העברה בנקאית, אפליקציות תשלום. ללא כרטיס אשראי.",
   "currenciesAccepted": "ILS",
@@ -86,7 +86,7 @@
     {"@type":"Question","name":"אתה עושה את סוג העבודה הזאת?","acceptedAnswer":{"@type":"Answer","text":"תשלח לי תמונה בוואטסאפ שאני אראה מה יש, או תסביר לי בטלפון בערך מה צריך, ואני אגיד לך מיד אם זה משהו שאני עושה."}},
     {"@type":"Question","name":"אולי אפשר לפתור את זה בלי שתגיע?","acceptedAnswer":{"@type":"Answer","text":"לפעמים כן. אם זו תקלה שלא צריך בשבילה מנעולן, כמו ציר שצריך שימון, אני אסביר לך בטלפון איך לסדר את זה. אני נוסע רק כשבאמת צריך."}},
     {"@type":"Question","name":"יש אחריות?","acceptedAnswer":{"@type":"Answer","text":"30 יום אחריות על העבודה שביצעתי. אם מופיעה תקלה אני חוזר, מתקן או מחליף. יש עבודות שאין עליהן אחריות או שהאחריות עליהן מוגבלת, ואת זה אני אומר מראש לפני שמתחילים."}},
-    {"@type":"Question","name":"אתה עובד בשבת?","acceptedAnswer":{"@type":"Answer","text":"לא. שבת וחגי ישראל סגור. במוצאי שבת אני זמין אחרי צאת השבת ועד 22:00."}},
+    {"@type":"Question","name":"אתה עובד בשבת?","acceptedAnswer":{"@type":"Answer","text":"לא. שבת וחגי ישראל סגור. במוצאי שבת אני זמין מצאת השבת ועד 22:00."}},
     {"@type":"Question","name":"ומה מחוץ לשעות?","acceptedAnswer":{"@type":"Answer","text":"זה מקרה מיוחד, לא השירות הרגיל. אפשר לנסות — יש תעריף לילה מוגדל, ואני לא מתחייב שאענה או שאגיע. תתקשר, ואם אני יכול תדע תוך רגע."}},
     {"@type":"Question","name":"איך משלמים?","acceptedAnswer":{"@type":"Answer","text":"כל אמצעי תשלום שנוח לך, חוץ מכרטיס אשראי שאני לא מקבל כרגע."}}
   ]
@@ -240,9 +240,9 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
   <p class="lbl">מתי אני זמין</p>
   <h2>שעות</h2>
   <div class="row"><span>ראשון–חמישי</span><i><bdi dir="ltr">08:00–22:00</bdi></i></div>
-  <div class="row"><span>שישי</span><i>עד <bdi dir="ltr">13:00</bdi></i></div>
+  <div class="row"><span>שישי</span><i><bdi dir="ltr">08:00–13:00</bdi></i></div>
   <div class="row"><span>שבת וחגי ישראל</span><i>סגור</i></div>
-  <div class="row"><span>מוצאי שבת</span><i>אחרי צאת השבת</i></div>
+  <div class="row"><span>מוצאי שבת</span><i>מצאת השבת עד <bdi dir="ltr">22:00</bdi></i></div>
 
   <!-- Two tiers, side by side and equally weighted. Burying "no commitment
        outside these hours" in fine print would be the dishonest version, and
@@ -313,7 +313,7 @@ details p{color:var(--dim);padding-bottom:.9rem;font-size:.97rem}
     <p>30 יום על העבודה שביצעתי. יש עבודות שאין עליהן אחריות או שהאחריות מוגבלת — את זה אני אומר מראש, לפני שמתחילים.</p></details>
 
   <details><summary>אתה עובד בשבת?</summary>
-    <p>לא. שבת וחגי ישראל סגור. במוצאי שבת אני זמין אחרי צאת השבת ועד 22:00.</p></details>
+    <p>לא. שבת וחגי ישראל סגור. במוצאי שבת אני זמין מצאת השבת ועד 22:00.</p></details>
 
   <details><summary>ומה מחוץ לשעות?</summary>
     <p>זה מקרה מיוחד, לא השירות הרגיל. אפשר לנסות — יש תעריף לילה מוגדל, ואני לא מתחייב שאענה או שאגיע. תתקשר, ואם אני יכול תדע תוך רגע.</p></details>
