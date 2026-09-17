@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zviki-locksmith.github.io/sitemap.xml

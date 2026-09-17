@@ -1,0 +1,12 @@
+/* SITE */
+Name: צביקי קירש — מנעולן
+Site: https://zviki-locksmith.github.io/
+Language: Hebrew
+Standards: HTML5, CSS3
+Components: none — hand-written, no framework, no build step
+
+/* BUILT BY */
+Studio: Wild Digital Moments
+Site: https://digital.wildmoments.at/
+Contact: studio.beri [at] wildmoments.at
+Location: Wenns, Tirol, Austria
