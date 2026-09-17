@@ -110,9 +110,13 @@ p:last-child{margin-bottom:0}
                color:var(--brass);font-size:1.05rem}
 .more a:hover,.more a:focus-visible{border-color:var(--brass);background:var(--ink-2)}
 /* The page you are already on stays in the list so the set is always the same,
-   but it is not a link anywhere and does not pretend to be one. */
-.more a[aria-current="page"]{background:var(--ink-2);border-color:var(--line-soft);opacity:.6}
-.more a[aria-current="page"]::after{content:'●';font-size:.6rem;color:var(--dim)}
+   but it is not a link anywhere and does not pretend to be one. Recessed with
+   its own colours rather than opacity: opacity fades the text against its
+   background too, and it took the 13px description line down to 3.29:1. */
+.more a[aria-current="page"]{background:var(--ink-2);border-color:var(--line-soft)}
+.more a[aria-current="page"] b{color:var(--dim);font-weight:600}
+.more a[aria-current="page"]::after{content:'●';font-size:.55rem;color:var(--brass)}
+.more a[aria-current="page"]:hover{border-color:var(--line-soft);background:var(--ink-2)}
 @media(min-width:620px){
   .more{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;align-items:stretch}
   .more-h{grid-column:1/-1;margin-bottom:.2rem}
