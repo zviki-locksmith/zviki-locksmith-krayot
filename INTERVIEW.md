@@ -247,6 +247,27 @@ Let him answer in his own words, then push past the first answer, which is alway
 
 ---
 
+## Section 11 — Domain name
+
+*Ask this early. It gets more expensive to change after the Google profile is verified.*
+
+The site currently lives at `zviki-locksmith.github.io/zviki-locksmith-krayot/`. That address costs him calls in two ways: a person deciding whether to trust a stranger with their front door reads it as improvised, and the Google Business Profile points at it, so the profile inherits the same impression.
+
+A `.co.il` domain costs roughly ₪50–100 a year. On GitHub Pages it is one `CNAME` file plus two DNS records — no migration, no rebuild, the same repo keeps serving.
+
+> **"יש לך דומיין? אם לא — בוא נקנה אחד עכשיו, לפני שאתה מסיים את הפרופיל בגוגל."**
+
+Dig:
+- Does he already own a domain, from anything? Where is it registered?
+- Does the business name have a natural domain? Get 2–3 options he likes.
+- Does he have an existing hosting account or email at some provider?
+
+**Why the timing matters:** the Google profile asks for a website URL, and changing it after verification means editing the profile, waiting for re-review, and leaving the old URL indexed. Doing it in this order is free; doing it later is not.
+
+If he isn't ready to buy one, that is fine — write `חסר` and continue. Everything else in this file still applies, and the domain can be attached later without touching the site's content. Just flag it as the first thing to revisit.
+
+---
+
 ## What you produce
 
 Create `docs/FACTS.md` with every field below. Mark each `✅` when answered, `חסר` when not. Commit after every section.
@@ -321,6 +342,12 @@ Warranty:                  [ ]
 Insurance:                 [ ]
 Why him (his words):       [ ]
 Wants Shabbat stated:      [ ]
+
+## Domain
+Owns a domain already:     [ ]
+Registrar:                 [ ]
+Preferred names:           [ ]
+Bought / pending / חסר:    [ ]
 ```
 
 ---
