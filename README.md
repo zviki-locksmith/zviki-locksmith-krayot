@@ -1,74 +1,74 @@
-# zviki-locksmith-krayot
+# zviki-locksmith.github.io
 
-Website for Zviki Kirsh, locksmith serving the Krayot.
-Live: https://zviki-locksmith.github.io/zviki-locksmith-krayot/
+Website for Zviki Kirsh, locksmith serving the Krayot and Haifa.
+**Live:** https://zviki-locksmith.github.io/
 
----
-
-## Read this before changing anything
-
-**The build is blocked on facts, not on design.**
-
-`docs/FACTS.md` is currently empty. Until it is filled, the site cannot get the things that would actually make it rank and convert — schema, real prices, per-city pages, verifiable credentials. More passes on the layout or the portrait will not move any of those.
-
-**Next action:** interview Zviki using [`INTERVIEW.md`](INTERVIEW.md), and write his answers into [`docs/FACTS.md`](docs/FACTS.md).
-
-`INTERVIEW.md` is a conversation script, not a form. One question at a time, in Hebrew, you type while he talks. It carries the follow-up probes and the bar for what counts as a complete answer. Commit after every section — he takes emergency calls and will be interrupted.
+One page, plain HTML, CSS inline, no JavaScript beyond a single console line, no build step. GitHub Pages serves the repo root on `main`.
 
 ---
 
-## Why these questions and not others
+## Start here
 
-On 2026-09-17 we scanned the 10 locksmith sites ranking on page 1 for `מנעולן קריות` and the Krayot city queries:
+| you want to | read |
+|---|---|
+| know where the project stands and what is still open | [`docs/HANDOFF.md`](docs/HANDOFF.md) |
+| deploy, or verify a change on the live site | [`docs/RUNBOOK.md`](docs/RUNBOOK.md) |
+| find a fact before writing copy | [`docs/FACTS.md`](docs/FACTS.md) |
+| change text on the site (for Zviki) | [`EDITING.md`](EDITING.md) |
+| collect facts that are still missing | [`INTERVIEW.md`](INTERVIEW.md) |
+
+---
+
+## The one rule
+
+**Everything on the page comes from `docs/FACTS.md`.** If a fact is not recorded there, it does not go on the site — not a price, not a review, not a year, not a credential. `חסר` is always a better answer than an invented one, and in a trade where the customer's main fear is being conned, a claim that cannot be backed is a liability rather than a selling point.
+
+Six things are settled and should not be reopened: no prices, no lock brands, no competitor comparisons, no "why choose me" copy, Saturday closed, and no business number on the page (he has none, and displaying one that is not his is a consumer-protection offence).
+
+---
+
+## Why the page is shaped the way it is
+
+From a scan of the ten locksmith sites ranking on page 1 for `מנעולן קריות` and the Krayot city queries (2026-09-17):
 
 | | |
 |---|---|
-| Publish a license / certification number | **0 of 10** |
-| Show a real, named technician (not stock) | **0 of 10** |
-| Have `FAQPage` schema | **0 of 10** |
-| Have `Offer` / price schema | **0 of 10** |
-| Publish real prices | 2 of 10 |
-| Have a WhatsApp link | 3 of 10 |
-| Have `LocalBusiness` schema | 2 of 10 |
-| Promise "up to 20 minutes" | 8 of 10 — none proves it |
+| publish a license number | 0 / 10 |
+| show a real, named technician | 0 / 10 |
+| have `FAQPage` schema | 0 / 10 |
+| have `Offer` / price schema | 0 / 10 |
+| publish real prices | 2 / 10 |
+| have a WhatsApp link | 3 / 10 |
+| promise "up to 20 minutes" | 8 / 10, none proves it |
 
-Every one of them writes "מנעולן מוסמך" or "מורשה משטרת ישראל" — one of them 24 times on a single page — and not one publishes a number anyone could check. One of those same sites tells readers the main risk in this trade is *"מנעולנים מתחזים שסייעו לפורצים"* and to demand the technician's ID.
+The business holding the #1 map-pack slot across all three Krayot queries has the **weakest** site in the set — it wins on its Google Business Profile. So the profile is the main channel and this site has a narrower job: back the profile with identical details, and catch the per-city searches.
 
-That gap is the opening. It is why the license number is question one.
+Three things carry the page, each because the competitors lack it:
 
-Separately: the business holding the #1 map-pack slot across all three Krayot queries has the **weakest** site in the set — 62 KB, no schema, no city pages, no prices. It wins on its Google Business Profile. Treat the Google profile as the primary channel and this site as what backs it up and catches the city searches.
+1. **Phone-first service**, right under the hero — Zviki explains the fix on the phone when the job does not need a locksmith. Nobody else offers to save the customer the call-out, and it answers the trade's central trust objection directly.
+2. **Per-city arrival estimates**, with an explicit caveat that they move with traffic and where he is. Admitting Haifa takes an hour is what makes the rest believable.
+3. **Real hours, Saturday closed.** All ten competitors advertise 24/7.
 
 ---
 
-## Current state
+## Layout
 
 ```
-index.html        the whole site — one page, plain HTML, CSS inline, no JS, no build step
-INTERVIEW.md      the interview script  ← start here
-docs/FACTS.md     the answers           ← empty
+index.html              the whole site
+assets/                 portrait, studio parrot, og card
+assets/fonts/           5 subset woff2 files, 32KB total
+favicon.svg  robots.txt  sitemap.xml  humans.txt
+docs/FACTS.md           every answer, every refusal, and the legal section
+docs/HANDOFF.md         state and open items
+docs/RUNBOOK.md         deploy and verify
+EDITING.md              for Zviki, in Hebrew
+INTERVIEW.md            the interview protocol
 ```
 
-What the site already does well: correct RTL (`lang="he" dir="rtl"`), click-to-call in 5 places including a fixed mobile bar, WhatsApp beside every call link, and a real photo of a real person — which, per the table above, none of the competitors have.
+No third-party requests: no Google Fonts, no analytics, no CDN. Everything loads from this origin, which is also why it works on one bar of signal.
 
-What it is missing, and why each needs `docs/FACTS.md` first:
+---
 
-| Missing | Blocked on |
-|---|---|
-| `LocalBusiness` / `Locksmith` schema | hours, address or service area, phone |
-| `FAQPage` schema | his real answers, in his words |
-| `Offer` schema + a price table | his prices |
-| Per-city pages | which cities he actually serves |
-| og: / twitter: tags | a share image — the site is shared over WhatsApp and currently renders no card |
-| robots.txt, sitemap.xml, canonical, favicon | nothing — these can be done any time |
-| Credibility layer | license number, certificate photo, reviews, van and work photos |
-| A real domain | see `INTERVIEW.md` §11 — cheapest to settle before the Google profile is verified |
+## Accessibility
 
-## Hard rules
-
-1. Never invent a license number, a review, a price, or a year. `חסר` is always the right answer when you don't have it.
-2. Never write "מוסמך" without a number behind it — that word is what every competitor uses to say nothing.
-3. Never publish 24/7 unless Zviki confirmed it.
-4. Never copy a competitor's claim, price, or wording.
-5. Reviews must be real, with real names. Two competitors publish self-declared counts of 1,050 and 6,452 at a perfect 5.0; anyone who checks stops believing the rest of the page.
-6. His words over polished words.
-7. Photos must be real. No stock — two competitors use Shutterstock, one of them 25 times.
+Built to WCAG AA — keyboard focus, 6.79:1 minimum measured contrast across 74 elements, 44px targets, skip link, semantic landmarks, reduced-motion. Zviki is an עוסק פטור and therefore exempt under reg. 35(ו)(7); the exemption removes the regulatory duty but not the civil claim under s.19(51), which allows up to ₪50,000 with no proof of damage. Reg. 34(ה) requires publishing that the exemption exists plus an alternative contact route, which is the footer paragraph. Citations are in `docs/FACTS.md`.
