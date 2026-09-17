@@ -16,6 +16,7 @@ One page, plain HTML, CSS inline, no JavaScript beyond a single console line, no
 | find a fact before writing copy | [`docs/FACTS.md`](docs/FACTS.md) |
 | change text on the site (for Zviki) | [`EDITING.md`](EDITING.md) |
 | collect facts that are still missing | [`INTERVIEW.md`](INTERVIEW.md) |
+| know whether AI tools can find him | [`docs/AI-READINESS.md`](docs/AI-READINESS.md) |
 
 ---
 
@@ -54,16 +55,23 @@ Three things carry the page, each because the competitors lack it:
 ## Layout
 
 ```
-index.html              the whole site
+index.html              the home page
+about/ contact/ privacy/   the trust anchor pages agents check
+404.html
+assets/base.css         tokens, type and everything every page shares
 assets/                 portrait, studio parrot, og card
 assets/fonts/           5 subset woff2 files, 32KB total
-favicon.svg  robots.txt  sitemap.xml  humans.txt
+favicon.svg  robots.txt  sitemap.xml  humans.txt  llms.txt
 docs/FACTS.md           every answer, every refusal, and the legal section
 docs/HANDOFF.md         state and open items
 docs/RUNBOOK.md         deploy and verify
+docs/AI-READINESS.md    the Is Agentic scan, what was fixed, what cannot be
 EDITING.md              for Zviki, in Hebrew
 INTERVIEW.md            the interview protocol
 ```
+
+The palette and type live once, in `assets/base.css`. Page-specific rules stay
+inline in the page that uses them.
 
 No third-party requests: no Google Fonts, no analytics, no CDN. Everything loads from this origin, which is also why it works on one bar of signal.
 
